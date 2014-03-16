@@ -8,9 +8,11 @@
 
 #import "QuestionListViewController.h"
 #import "WebViewController.h"
+#import "MemoViewController.h"
 
 @interface QuestionListViewController ()
 @property (strong, nonatomic) NSArray *questions;
+- (IBAction)buttonTap:(UIButton *)sender;
 @end
 
 @implementation QuestionListViewController
@@ -144,4 +146,19 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)buttonTap:(UIButton *)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Demo Alert"
+                                                    message:@"demo appl"
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
+    [self showMemoView];
+}
+
+-(void)showMemoView
+{
+    MemoViewController *memoViewController = [[MemoViewController alloc] init];
+    [self presentViewController:memoViewController animated:YES completion:nil];
+}
 @end
